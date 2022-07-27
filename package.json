@@ -1,6 +1,6 @@
 {
   "name": "temon",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Typescript runner, bundler, watcher powered by esbuild & nodemon",
   "bin": "bin.cjs",
   "repository": "git@github.com:erwinstone/temon.git",
@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/erwinstone/temon/issues"
   },
-  "homepage": "https://github.com/erwinstone/temon#readme"
+  "homepage": "https://github.com/erwinstone/temon#readme",
+  "dependencies": {
+    "pkg-up": "^4.0.0"
+  }
 }
