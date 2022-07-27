@@ -1,0 +1,21 @@
+{
+  "name": "temon",
+  "version": "1.0.0",
+  "description": "Typescript runner, bundler, watcher powered by esbuild & nodemon",
+  "bin": "index.js",
+  "repository": "git@github.com:erwinstone/temon.git",
+  "author": "Erwin Stone <erwinstone@pm.me>",
+  "license": "MIT",
+  "keywords": [
+    "esbuild",
+    "nodemon",
+    "runtime",
+    "node",
+    "typescript",
+    "esbuild nodemon"
+  ],
+  "bugs": {
+    "url": "https://github.com/erwinstone/temon/issues"
+  },
+  "homepage": "https://github.com/erwinstone/temon#readme"
+}
