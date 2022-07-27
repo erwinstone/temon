@@ -6,7 +6,7 @@ const tmpdir = require('os').tmpdir
 const join = require('path').join
 const realpathSync = require('fs').realpathSync
 const spawn = require('child_process').spawn
-const type = require('./package.json').type
+const type = require('../../package.json').type
 
 const options = parse(process.argv)
 const watch = options.hasOwnProperty('watch')
