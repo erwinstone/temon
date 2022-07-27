@@ -11,7 +11,7 @@ Typescript runner, bundler, watcher powered by esbuild & nodemon
 Install my-project with npm
 
 ```bash
-  npm install temon
+  npm install esbuild nodemon temon
 ```
     
 ## Usage/Examples
