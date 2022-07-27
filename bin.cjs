@@ -12,7 +12,7 @@ const options = parse(process.argv)
 const watch = options.hasOwnProperty('watch')
 const args = options.args
 const build = args.includes('--build')
-const outfile = build ? args[args.indexOf('--build') + 1] : join(realpathSync(tmpdir()), `${Math.random()}.mjs`)
+const outfile = build ? args[args.indexOf('--build') + 1] : join(realpathSync(tmpdir()), `${Math.random()}.js`)
 
 async function builder() {
   await esbuild.build({
