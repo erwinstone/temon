@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
-import esbuild from 'esbuild'
-import nodemon from 'nodemon'
-import { parse } from 'nodemon/lib/cli/index.js'
-import { tmpdir } from 'os'
-import { join } from 'path'
-import { realpathSync } from 'fs'
-import { spawn } from 'child_process'
+const esbuild = require('esbuild')
+const parse = require('nodemon/lib/cli/index.js').parse
+const tmpdir = require('os').tmpdir
+const join = require('path').join
+const realpathSync = require('fs').realpathSync
+const spawn = require('child_process').spawn
+const type = require('./package.json').type
 
 const options = parse(process.argv)
 const watch = options.hasOwnProperty('watch')
@@ -20,7 +20,7 @@ async function builder() {
     bundle: true,
     platform: 'node',
     external: ['./node_modules/*'],
-    format: 'esm',
+    format: type === 'module' ? 'esm' : 'cjs',
     logLevel: watch || build ? 'info' : 'silent',
     outfile,
     watch,
@@ -28,7 +28,7 @@ async function builder() {
 }
 
 function watcher() {
-  nodemon({
+  require('nodemon')({
     script: outfile,
     watch: [outfile],
     quiet: true,

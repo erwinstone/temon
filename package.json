@@ -1,8 +1,8 @@
 {
   "name": "temon",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Typescript runner, bundler, watcher powered by esbuild & nodemon",
-  "bin": "bin.mjs",
+  "bin": "bin.cjs",
   "repository": "git@github.com:erwinstone/temon.git",
   "author": "Erwin Stone <erwinstone@pm.me>",
   "license": "MIT",
