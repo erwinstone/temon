@@ -12,6 +12,7 @@ const options = parse(process.argv)
 const watch = options.hasOwnProperty('watch')
 const args = options.args
 const build = args.includes('--build')
+const minify = args.includes('--minify')
 const ext = type === 'module' ? 'mjs' : 'cjs'
 const outfile = build ? args[args.indexOf('--build') + 1] : join(realpathSync(tmpdir()), `${Math.random()}.${ext}`)
 
@@ -25,6 +26,7 @@ async function builder() {
     logLevel: watch || build ? 'info' : 'silent',
     outfile,
     watch,
+    minify,
   })
 }
 
