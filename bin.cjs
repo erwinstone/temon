@@ -17,7 +17,7 @@ const ext = type === 'module' ? 'mjs' : 'cjs'
 const outfile = build ? args[args.indexOf('--build') + 1] : join(realpathSync(tmpdir()), `${Math.random()}.${ext}`)
 
 async function builder() {
-  await esbuild.build({
+  const buildOpts = {
     entryPoints: [options.script],
     bundle: true,
     platform: 'node',
@@ -25,9 +25,14 @@ async function builder() {
     format: type === 'module' ? 'esm' : 'cjs',
     logLevel: watch || build ? 'info' : 'silent',
     outfile,
-    watch,
     minify,
-  })
+  }
+  if (watch) {
+    const ctx = await esbuild.context(buildOpts)
+    await ctx.watch()
+  } else {
+    await esbuild.build(buildOpts)
+  }
 }
 
 function watcher() {
