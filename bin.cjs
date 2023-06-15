@@ -16,9 +16,12 @@ const minify = args.includes('--minify')
 const ext = type === 'module' ? 'mjs' : 'cjs'
 const outfile = build ? args[args.indexOf('--build') + 1] : join(realpathSync(tmpdir()), `${Math.random()}.${ext}`)
 
+const command = process.argv[2].split(' ')
+console.log(command)
+
 async function builder() {
   const buildOpts = {
-    entryPoints: [options.script],
+    entryPoints: [command[0]],
     bundle: true,
     platform: 'node',
     external: ['./node_modules/*'],
@@ -40,6 +43,7 @@ function watcher() {
         script: outfile,
         watch: [outfile],
         quiet: true,
+        args: command.length > 1 ? command.slice(1) : [],
     })
 }
 

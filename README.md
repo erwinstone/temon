@@ -31,3 +31,9 @@ temon index.ts --build dist/index.js
 temon index.ts --build dist/index.js --minify
 temon index.ts --watch
 ```
+
+You can also pass arguments:
+
+```bash
+temon "index.ts --test" --watch
+```
