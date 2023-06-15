@@ -1,6 +1,6 @@
 {
   "name": "temon",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Typescript runner, bundler, watcher powered by esbuild & nodemon",
   "bin": "bin.cjs",
   "repository": "git@github.com:erwinstone/temon.git",
@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/erwinstone/temon#readme",
   "peerDependencies": {
-    "esbuild": "^0.17.0",
-    "nodemon": "^2.0.20"
+    "esbuild": "^0.18.0",
+    "nodemon": "^2.0.22"
   }
 }
