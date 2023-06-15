@@ -37,21 +37,25 @@ async function builder() {
   }
 }
 
+function getArguments() {
+  return command.length > 1 ? command.slice(1) : []
+}
+
 function watcher() {
-    require('nodemon')({
-        script: outfile,
-        watch: [outfile],
-        quiet: true,
-        args: command.length > 1 ? command.slice(1) : [],
-    })
+  require('nodemon')({
+    script: outfile,
+    watch: [outfile],
+    quiet: true,
+    args: getArguments(),
+  })
 }
 
 void(async function () {
-    await builder()
-    if (watch) {
-      watcher()
-      process.on('SIGINT', process.exit)
-    } else {
-      !build && spawn('node', [outfile], { stdio: 'inherit' })
-    }
+  await builder()
+  if (watch) {
+    watcher()
+    process.on('SIGINT', process.exit)
+  } else {
+    !build && spawn('node', [outfile, ...getArguments()], { stdio: 'inherit' })
+  }
 })()
