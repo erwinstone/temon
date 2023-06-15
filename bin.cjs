@@ -17,7 +17,6 @@ const ext = type === 'module' ? 'mjs' : 'cjs'
 const outfile = build ? args[args.indexOf('--build') + 1] : join(realpathSync(tmpdir()), `${Math.random()}.${ext}`)
 
 const command = process.argv[2].split(' ')
-console.log(command)
 
 async function builder() {
   const buildOpts = {
