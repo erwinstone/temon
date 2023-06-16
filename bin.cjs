@@ -7,13 +7,13 @@ const join = require('path').join
 const realpathSync = require('fs').realpathSync
 const spawn = require('child_process').spawn
 
-const type = require(join(process.cwd(), 'package.json')).type
+const type = require(join(process.cwd(), 'package.json')).type ?? 'module'
 const options = parse(process.argv)
 const watch = options.hasOwnProperty('watch')
 const args = options.args
 const build = args.includes('--build')
 const minify = args.includes('--minify')
-const ext = type === 'module' ? 'mjs' : 'cjs'
+const ext = type === 'commonjs' ? 'cjs' : 'mjs'
 const outfile = build ? args[args.indexOf('--build') + 1] : join(realpathSync(tmpdir()), `${Math.random()}.${ext}`)
 
 const command = process.argv[2].split(' ')
